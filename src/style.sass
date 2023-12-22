@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap')
+
+@mixin border_and_padd
+  border-radius: clamp(25px, 7%, 5px )
+  padding: clamp(25px, 5%, 5px )
+// #authorize_button
+//   // width: 150px
+//   height: 50px
+
+body
+  font-weight: bold
+  font-family: 'Nunito', sans-serif
+  font-size: 20px
+  background-color: #282c34
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  font-size: calc(10px + 2vmin)
+  color: darkgreen
+.app
+  &-achivment
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    justify-content: space-evenly
+    &-content
+      display: flex
+      flex-direction: column
+      align-items: center
+      > span
+        width: 200px
+
+  &-endgame
+    align-content: start
+  &-button
+    width: 250px
+    height: 50px
+    font-size: larger
+  &-all
+    display: grid
+    grid-auto-flow: column
+    grid-gap: 4vh
+    align-items: end
+  &-auth
+    display: grid
+    text-align: center
+    width: clamp(500px, 40vw, 600px)
+    height: 80vh
+    background-color: #fff
+    position: relative
+    @include border_and_padd
+    // align-content: space-between
+    padding-bottom: 50px
+
+    &-google
+      // position: absolute
+      display: grid
+      grid-auto-flow: column
+      // text-align: right
+      height: 35px
+      padding: 10px
+      justify-content: space-evenly
+      margin: 0
+      > button
+        width: 95px
+    &result
+      text-align: center
+    &button
+      // font-weight: bold
+      // font-family: 'Nunito', sans-serif
+      // font-size: 20px
+      border-radius: 30px
+      border: 0
+      padding: 15px 30px
+      background-color: darken(#ff006e, 3%)
+      color: #fff
+      margin-top: 20px
+      cursor: pointer
+
+  &-ai
+    &--fullheight, &--miniheight
+      @include border_and_padd
+      margin-top: 20px
+      border: 1px solid black
+      background-color: #fff
+      width: clamp(350px, 25vw, 430px)
+      display: grid
+      grid-template-rows: 30px 1fr
+      align-content: normal//space-between
+      position: fixed
+      right: 1%
+      bottom: 1%
+      z-index: 999
+    &--fullheight
+      height: clamp(20%, 55vh, 65vh)
+    &--miniheight
+      height: 50px
+      margin-top: 0px
+      padding-top: 0
+      padding-bottom: 0
+    &-navbar
+      justify-items: center
+      text-align: center
+      display: grid
+      grid-auto-flow: column
+      font-size: medium
+      height: 50px
+      z-index: 1
+      align-content: center
+      align-items: center
+      & > button
+        height: 21px
+        width: 40px
+      &-roll
+        &--down
+          cursor: pointer
+          &::after
+            content: "\1F5D5"
+        &--up
+          cursor: pointer
+          &::after
+            content: "\1F5D6"
+    &-footer
+      display: grid
+      grid-auto-flow: column
+      justify-content: center
+      align-items: center
+      > button
+        height: 35px
+        width: 100px
+      &-counter
+        padding: 0 10px 0 10px
+    &-form-dir
+      display: grid
+      // align-content: center
+      // margin: -100px 0 0 0
+      padding: 0
+      width: inherit
+      align-self: auto
+      // height: inherit
+      &  > *
+        margin: 20px 0 20px 0
+        width: auto
+        padding: 10px
+      & > span
+        text-align: center
+        margin: 0
+        padding: 0
+        align-self: end
+      & > input, select
+        padding: 10px 0 10px 20px
+        text-align: start
+
+    &-chat
+      // align-content: center
+      width: inherit
+      display: grid
+      height: inherit
+      // align-content: start
+      &-chating
+        width: inherit
+        display: grid
+        margin: 0px 0 0 0
+        // height: 45vh
+        background-color: whitesmoke
+        border-radius: 30px
+        overflow-y: auto
+        margin: 10px 0
+        &-elem
+          height: 50px
+          z-index: 2
+          padding: 0 20px 0 20px
+        &-answer, &-question
+          display: grid
+          width: inherit
+          // height: 10px!important
+          color: cornflowerblue
+          font-size: calc(10px + 1vmin)
+          padding: 40px 0 20px 10px
+          justify-content: flex-start
+          // height: 20px !important
+        &-question
+          justify-content: flex-end
+          color: darkblue
+          text-align: end
+          padding: 30px 10px 20px 0
+      & > span
+        text-align: left
+      &-func-elem
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        height: 35px
+        & > button
+
+          font-weight: bold
+          font-family: "Nunito", sans-serif
+          font-size: calc(8px + 1vmin)
+          width: 150px
+          border-radius: 0px 15px 20px 0px
+          // background-color: seashell
+          border: 0 solid black
+          cursor: pointer
+          margin: 0
+
+        & > input
+          text-align: left
+
+          padding: 10px
+          background-color: white
+          color: #000
+          border-radius: 15px 0px 0px 20px
+          border: 1px solid darkgreen
+          margin: 0
+          width: 100%
+  &-list-content
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    // grid-template-columns: repeat(4, 1fr)
+    // grid-template-areas: "center center center center"".item item ."".item item ."
+    grid-gap: 10px
+    &-title
+      // grid-area: center
+    &-elem
+      // grid-area: item
+
+.visibility
+  visibility: visible
+.hiiden
+  visibility: hidden
+
+.display-block
+  display: block
+.display-none
+  display: none
+
+#signout_button
+  &-logo
+    height: 40vmin
+    pointer-events: none
+
+  &h2
+    margin-bottom: 0
+
+// img
+//   width: 100px
+
+.progress
+  height: 10px
+  border-radius: 30px
+  background-color: rgb(232, 232, 232)
+  // margin-bottom: 25px
+  // padding: 0 25px 0 25px
+
+  &__inner
+    height: 100%
+    border-radius: 30px
+    width: 80%
+    background: rgb(18, 231, 48)
+    transition: all 0.3s ease-in-out
+    background: linear-gradient(90deg, rgba(18, 231, 48, 1) 0%, rgba(0, 212, 255, 1) 100%)
+  &:before,
+  &:after
+    content: ''
+    display: block
+    height: 50px
+    border-bottom-left-radius: 30px
+    border-bottom-right-radius: 30px
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+  &:before
+    width: 95%
+    bottom: -10px
+    background-color: rgba(255, 255, 255, 0.8)
+    z-index: 0
+  &:after
+    width: 90%
+    bottom: -20px
+    background-color: rgba(255, 255, 255, 0.3)
+    z-index: 1
+
+@media (prefers-reduced-motion: no-preference)
+.app-logo
+  animation: App-logo-spin infinite 20s linear
+
+.app-link
+  color: #61dafb
+
+@keyframes App-logo-spin
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
+
+ul
+  list-style: none
+  padding: 0
+  margin: 0
+  font-size: calc(10px + 1.5vmin)
+
+h1, h6
+  margin: 30px
+// h3
+  // margin: 0 0 10px 0
+li
+  display: grid
+  align-items: center
+  font-size: calc(8px + 1.5vmin)
+  margin: 10px
+  padding: 15px
+  border: 2px solid rgba(0, 0, 0, 0.1)
+  border-radius: 15px
+  margin-bottom: 10px
+  cursor: pointer
+  transition: all 0.1s ease-in-out
+
+  &:hover
+    border: 2px solid rgba(0, 0, 0, 0.3)
+
+input, select, button
+  font-size: calc( 1.3vmin)
+
+  color: darkgreen
+  font-weight: bold
+  font-family: 'Nunito', sans-serif
+  border-radius: 35px
+  text-align: center
+  border: 1px black solid
+    // padding: 15px 30px
+    // font-size: 20px
+  background-color: White
+  color: #000
+  // margin-top: 20px
+    // cursor: pointer
+  margin: 0px
+button
+  // height: 35px
+  // width: 100px
+  cursor: pointer
+  color: white
+  background-color: olivedrab
+  border: 0
+  // width: 150px
+  border-radius: 25px
+  margin: 10px 0px 0px opx
+
+.item-top
+  align-self: start
+
+.item-bottom
+  align-self: end
+#button-continie
+  cursor: pointer
+
+// #token_button
