@@ -1,0 +1,476 @@
+@use "./module/css/light.css"
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+:root
+  @extend .light
+  // --md-ref-typeface-brand: 'Open Sans'
+  --md-ref-typeface-plain: Roboto
+  --md-sys-typescale-body-large-size: 1rem
+  --md-filled-select-text-field-input-text-font: Roboto
+  --md-filled-text-field-input-text-font: Roboto
+  --md-circular-progress-size: 22px
+  --md-circular-progress-active-indicator-width: 19
+
+  --md-circular-progress-active-indicator-color: green
+
+  --md-switch-track-height: 21px
+  --md-switch-track-width: 32px
+  --md-switch-pressed-handle-width: 18px
+  --md-switch-pressed-handle-height: 18px
+
+  --md-switch-selected-handle-width: 18px
+  --md-switch-selected-handle-height: 18px
+
+  --md-switch-track-color: var(--md-sys-color-primary-container)
+  --md-switch-handle-color: var(--md-sys-color-on-primary-container)
+
+  -md-switch-pressed-handle-color: var(--md-sys-color-on-primary-container)
+  --md-switch-pressed-track-color: var(--md-sys-color-primary-container)
+  --md-radio-icon-size: 18px
+
+  // --md-radio-selected-icon-color	red
+
+  // --md-sys-color-on-primary: var( --md-sys-color-on-primary)
+  // --md-sys-color-outline: #6f7979
+  // --md-sys-color-surface-container-highest: #dde4e3
+
+  // --md-circular-progress-color	--md-sys-color-primary
+@mixin btnWithIcon
+  width: max-content
+  border: none
+  background: none
+  cursor: pointer
+
+@mixin mainAnimBg
+  transition-property: background
+  transition-duration: 0.3s
+
+@mixin material-theme-display-large
+  font: 57px/1.12 Roboto
+  letter-spacing: -0.25px
+
+@mixin material-theme-headline-large
+  font: 32px/1.25 Roboto
+@mixin material-theme-display-medium
+  font: 45px/1.16 Roboto
+
+@mixin material-theme-display-small
+  font: 36px/1.22 Roboto
+
+@mixin material-theme-headline-medium
+  font: 28px/1.29 Roboto
+
+@mixin material-theme-headline-small
+  font: 24px/1.33 Roboto
+
+@mixin material-theme-title-large
+  font: 22px/1.27 Roboto
+
+@mixin material-theme-title-medium
+  font: 500 16px/1.5 Roboto
+  letter-spacing: 0.15px
+
+@mixin material-theme-body-large
+  font: 16px/1.5 Roboto
+  letter-spacing: 0.5px
+
+@mixin material-theme-title-small
+  font: 500 14px/1.43 Roboto
+  letter-spacing: 0.1px
+
+@mixin material-theme-label-large
+  font: 500 14px/1.43 Roboto
+  letter-spacing: 0.1px
+
+@mixin material-theme-body-medium
+  font: 14px/1.43 Roboto
+  letter-spacing: 0.25px
+
+@mixin material-theme-label-medium
+  font: 500 12px/1.33 Roboto
+  letter-spacing: 0.5px
+
+@mixin material-theme-body-small
+  font: 12px/1.33 Roboto
+  letter-spacing: 0.4px
+
+@mixin material-theme-label-small
+  font: 500 11px/1.45 Roboto
+  letter-spacing: 0.5px
+
+@mixin cPrimFixVvar
+  background: var(--md-sys-color-on-primary-fixed-variant)
+
+@mixin cSecCont
+  background-color: var(--md-sys-color-secondary-container)
+@mixin footerStylepPreset
+  // background-color: var(--md-sys-color-secondary)
+  @include cPrimFixVvar
+  color: var(--md-sys-color-on-secondary)
+  text-align: center
+  @include material-theme-title-medium
+
+@mixin borderPreset
+  border: 1px solid var(--md-sys-color-outline-variant)
+
+body
+  // background: var(--Schemes-On-Surface-Variant)
+  background-color: var( --md-sys-color-on-surface-variant)
+  font-family: 'Roboto'
+  display: flex
+  align-content: center
+  align-items: center
+  height: 100vh
+  justify-content: center
+  // margin-top:  5vw
+.app
+  &-main
+    display: grid
+    // display: none
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background-color: var(--md-sys-color-on-secondary)
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+    width: fit-content
+    max-width: 480px
+    padding: 36px 48px
+    margin-left: auto
+    margin-right: auto
+    border-radius: 15px
+    &-navbar
+      display: flex
+      flex-direction: row
+      padding: 24px 0
+      &-progress,  &-progress--decor
+        border-radius: 15px
+        display: flex
+        width: -webkit-fill-available
+        margin-right: 8px
+        height: 22px
+          // padding-right: 319.5px
+        align-items: center
+        @include cSecCont
+      &-progress
+        pointer-events: none
+        &--bar
+          pointer-events: none
+          display: block
+          height: 22px
+          // border-left-radius: 30px
+          // border-right-radius: 30px
+          border-radius: 30px 0 0 30px
+          position: relative
+          width: 0%
+          background-color: var(--md-sys-color-on-primary-fixed-variant)
+          z-index: 1
+          transition: all 0.6s ease-in-out
+
+        &--decor
+          @include cPrimFixVvar
+      &-timer
+        user-select: none
+
+        display: flex
+        flex-direction: row
+        gap: 3px
+        align-items: center
+
+        flex-direction: row
+          // height: 100px
+          // width: 100px
+        > div
+          user-select: none
+
+          display: flex
+          align-items: center
+          justify-content: center
+          border-radius: 15px
+          height: 24px
+          width: 24px
+
+          color: var(--md-sys-color-on-primary-fixed-variant)
+          @include cSecCont
+
+          @include material-theme-body-medium
+    &-content
+
+      &-quiz
+        &-tests
+          padding: 24px
+          display: grid
+          grid-auto-flow: row
+          justify-content: flex-start
+          align-items: stretch
+          border-radius: 15px
+          border: 1px solid var(--md-sys-color-outline-variant)
+          background: var(--md-sys-color-surface-container-highest)
+          &-content
+            display: grid
+            padding: 24px 0
+            gap: 24px
+            grid-template-columns: repeat(2, 1fr)
+            grid-template-rows: repeat(1, 1fr)
+            &-elem
+              cursor: pointer
+              display: grid
+              align-items: center
+              text-align: center
+              padding: 18px
+              width: 168px
+              height: 168px
+              border-radius: 12px
+              box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)
+              background: var(--md-sys-color-surface-tint)
+              @include material-theme-title-large
+              color: var(--md-sys-color-on-secondary)
+              font-size: 22px
+
+              &:hover
+                background: rgb(95, 80, 134)
+                // animation: 4s linear
+              &--text
+                user-select: none
+                font-size: clamp(14px, 2.3vw, 18px)
+                word-break: break-word
+                width: 100%
+                justify-self: center
+                overflow-wrap: anywhere
+
+        &-text
+          &--title
+            user-select: none
+            margin-bottom: 8px
+            // padding: 24px 0
+            // @include cPrimFixVvar
+            @include material-theme-title-large
+          &--description
+            // margin-bottom: 24px
+            // padding: 24px 0
+            // @include cPrimFixVvar
+            @include material-theme-body-small
+      &-login
+        display: grid
+        grid-auto-flow: row
+        justify-content: flex-start
+        align-items: flex-start
+        align-self: stretch
+        min-width: 489px
+        padding: 24px 16px
+        gap: 24px
+        border-radius: 15px
+        border: 1px solid var(--md-sys-color-outline-variant)
+        background: var(--md-sys-color-surface-container-highest)
+        &-form
+          width: 112px
+
+          &--submit
+            width: 112px
+        &-select
+          border-radius: 8px
+        &-text
+          &--title
+            @include material-theme-title-large
+        > form
+          display: grid
+          grid-auto-flow: row
+          gap: 36px
+          > *
+            // padding: 8px
+            // height: 40px
+          > md-filled-button
+            width: 112px
+            padding: 0px
+            user-select: none
+          // margin-left: 8px
+    &-footer
+      display: grid
+      // justify-content: center
+      align-items: center
+      // align-self: stretch
+      @include cPrimFixVvar
+      height: 48px
+      margin: 24px 0
+      border-radius: 100px
+      border: 1px solid var(--md-sys-color-on-primary-fixed-variant)
+      &-buttons
+        display: grid
+        grid-template-columns: repeat(5, 1fr)
+        height: inherit
+        grid-auto-flow: column
+        justify-content: space-between
+        > *
+          user-select: none
+          display: grid
+          align-items: center
+          @include footerStylepPreset
+          height: inherit
+        &-button
+          &--prev, &--next
+            user-select: none
+            border: 1.5px solid rgba(30, 25, 43, 0.20)
+            background: var(--md-sys-color-on-primary-fixed-variant)
+            @include mainAnimBg
+            cursor: pointer
+            &:hover
+              background: rgb(73, 58, 111)
+
+          &--prev
+            grid-column: 1 / 3
+            border-radius: 100px 0px 0px 100px
+          &--next
+            grid-column: 4 / 6
+            border-radius: 1.5px 100px 100px 0px
+      &--decor
+        @include cPrimFixVvar
+  &-second
+    display: grid //none
+    grid-template-rows: 48px 1fr
+    align-content: normal//space-between
+    position: fixed
+    right: 1%
+    bottom: 1%
+    z-index: 999
+    border-radius: 15px
+    @include borderPreset
+    background: var(--md-sys-color-on-secondary)
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+    width: 372px
+    // transition: all 1s ease-in-out
+    // animation:/ 4s linear
+    // height: 532px
+    padding: 24px
+    &-navbar
+      display: grid
+      // grid-auto-flow: column
+      grid-template-columns: 114px 135px 1fr
+      // padding-bottom: 16px
+      height: 48px
+      & > div
+        display: grid
+        grid-auto-flow: column
+        place-items: center
+      &-indicator
+        padding: 0 8px
+        width: 92px
+        & > md-radio
+          // position: absolute
+          // margin: 0 0 0 68px
+          pointer-events: none
+      &-selector
+        padding: 0 8px
+      &-minimizate
+        place-items: end !important
+        align-self: center
+        & > button
+          width: max-content
+          border: none
+          background: none
+          cursor: pointer
+          & > svg
+            transform-origin: center
+            transform: rotate(0deg)
+
+          // color: var(--)
+
+    &-content
+      display: grid // : repeat(2, 30px);
+      height: 468px
+
+      grid-template-rows: 1fr 60px
+        // background-color: var(--md-sys-color-secondary)
+      //   // border-radius: 10px
+      // ::-webkit-scrollbar-thumb
+      //   height: 6px
+      // align-content: space-between
+      &-dialoge
+        display: grid
+        // justify-content: space-between
+        border-radius: 15px 15px 0 0
+        @include borderPreset
+        padding: 16px
+        overflow-y: scroll
+        gap: 36px
+        background: var( --md-sys-color-surface-container-highest)
+
+        > *
+          background-color: var(--md-sys-color-primary)
+          color: var(--md-sys-color-on-primary)
+          @include material-theme-body-medium
+          display: grid
+          align-content: center
+          height: fit-content
+          padding: 8px 12px
+          width: 264px
+        &--answer
+          border-radius: 5px 22px 22px 22px
+          justify-self: left
+
+        &--question
+          border-radius: 22px 22px 5px 22px
+          justify-self: end
+        &--null
+          display: none
+
+      &-send
+        display: grid
+        grid-auto-flow: column
+        border-radius: 0 0 15px 15px
+        // height: 28px
+        padding: 16px
+        gap: 38px
+        @include borderPreset
+        background: var(--md-sys-color-surface-container-high)
+        // margin-top: -16px
+        border-top: none
+        &-group
+          color: white
+          border-radius: 15px
+          display: grid
+          grid-auto-flow: column
+          grid-template-columns: 1fr 40px
+          height: 28px
+        &-input
+          // padding-left: 8px
+          height: 28px
+          border-radius: 15px 0 0 15px
+          border: 0px white
+          @include material-theme-title-small
+          width: inherit
+          & > input
+
+            height: 28px
+            background-color: var(--md-sys-color-on-primary)
+            color: var(--md-sys-color-on-primary-container)
+            padding: 0 8px
+            border-radius: 15px 0 0 15px
+            // height: 26px
+            border: none
+            width: -webkit-fill-available
+        &-button
+          height: 28px
+          display: grid
+          align-items: center
+          width: min-content
+          border-radius: 0 15px 15px 0px
+          border: 0px white
+          cursor: pointer
+          @include material-theme-title-small
+          background-color: var(--md-sys-color-on-primary)
+          // height: 28px
+          > button
+            @include btnWithIcon
+          > svg
+            width: 24px
+            height: 24px
+.app-second-content-dialoge::-webkit-scrollbar
+  width: 12px
+  background-color: none
+.app-second-content-dialoge::-webkit-scrollbar-thumb
+  background-color: var(--md-sys-color-secondary)
+  border-radius: 20px
+  width: 9px
+  border: 1px solid var(--md-sys-color-secondary)
+.svg-icon
+  height: 24px
+  width: 24px

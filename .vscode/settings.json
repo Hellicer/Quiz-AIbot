@@ -1,0 +1,19 @@
+{
+  "editor.fontFamily": "'Fira Code', monospace",
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "prettier.endOfLine": "auto",
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.trailingComma": "none",
+  "prettier.useEditorConfig": false,
+
+  "eslint.validate": ["javascript"],
+  "editor.fontSize": 16,
+  "files.autoSave": "onFocusChange"
+}
